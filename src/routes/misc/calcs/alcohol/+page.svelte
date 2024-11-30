@@ -7,8 +7,8 @@
 	let selectedOption = 'volume'
 	let weight = ''
 	let sg = '1.00'
-	let volume = '1'
-	let abv = '1'
+	let volume = ''
+	let abv = ''
 	let result
 
 	const options = [
