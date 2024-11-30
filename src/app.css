@@ -1,0 +1,16 @@
+@import 'open-props/style';
+@import url('https://fonts.cdnfonts.com/css/carolena-narashy');
+@import url('https://fonts.cdnfonts.com/css/unseeness');
+@import url('https://fonts.cdnfonts.com/css/katherine-script');
+@import url('https://fonts.cdnfonts.com/css/alkes');
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+* {
+	box-sizing: border-box;
+}
