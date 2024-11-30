@@ -28,8 +28,8 @@
 		</optgroup>
 
 		<optgroup label="Sparkling Wines">
-			<option value="1.013">Champagne SG: 1.005 &mdash; 1.020</option>
-			<option value="1.015">Prosecco SG: 1.010 &mdash; 1.020</option>
+			<option value="1.025">Champagne SG: 1.000 &mdash; 1.050</option>
+			<option value="1.015">Prosecco SG: 1.00 &mdash; 1.030</option>
 		</optgroup>
 		<optgroup label="Spirits">
 			<option value="0.955">Scotch Whisky SG: 0.940 &mdash; 0.970</option>
