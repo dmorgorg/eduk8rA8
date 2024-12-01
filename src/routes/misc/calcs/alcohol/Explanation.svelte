@@ -93,4 +93,18 @@
 	.drawn3 {
 		border-radius: var(--radius-drawn-3);
 	}
+
+	@media (max-width: 600px) {
+		.card {
+			border-width: var(--border-size-2);
+			font-size: 100%;
+			margin-inline: auto;
+			margin-block-start: 0;
+			width: 100%;
+			min-width: 0;
+			max-width: 100%;
+			/* background: yellow; */
+			padding-inline: 0.5rem;
+		}
+	}
 </style>

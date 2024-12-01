@@ -56,7 +56,4 @@
 		font: 1.2rem sans-serif;
 		color: #444;
 	}
-	/* select option:hover {
-		box-shadow: 0 0 10px 100px #1882a8 inset;
-	} */
 </style>

@@ -1,6 +1,4 @@
 <script>
-	import { readonly } from 'svelte/store'
-	import Button from './Button.svelte'
 	import Explanation from './Explanation.svelte'
 	import SGs from './SGs.svelte'
 	let viewCalc = true
@@ -39,7 +37,7 @@
 
 <div class="outer">
 	<div class="wrapper">
-		<h1>Alcohol Units Calculator</h1>
+		<h1 class="card drawn1">Alcohol Units Calculator</h1>
 		<button onclick={toggleView}>
 			{#if viewCalc}<span class="bigly">&larr;</span>
 				Show Explanation{:else}Go to Calculator <span class="bigly">&rarr;</span>
@@ -75,14 +73,14 @@
 							Specific Gravity, <strong>SG</strong>
 						</div>
 						<div class="input">
-							<input type="number" id="sg" bind:value={sg} />
+							<input type="number" id="sg" bind:value={sg} size="10" />
 						</div>
 					{:else}
 						<div class="label">
 							Volume, <strong>V</strong>
 						</div>
 						<div class="input">
-							<input type="number" id="volume" bind:value={volume} />
+							<input type="number" id="volume" bind:value={volume} size="10" />
 							<span>ml</span>
 						</div>
 					{/if}
@@ -92,7 +90,7 @@
 					</div>
 
 					<div class="input">
-						<input type="number" id="abv" bind:value={abv} />
+						<input type="number" id="abv" bind:value={abv} size="10" />
 						<span>%</span>
 					</div>
 				</section>
@@ -122,10 +120,6 @@
 						{/if}
 					</div>
 				{/if}
-
-				<!-- <p>
-					<button onclick={calcUnits}>Calculate Alcohol Units</button>
-				</p> -->
 			</div>
 			{#if selectedOption === 'weight'}
 				<h3>Click below for a list of specific gravities</h3>
@@ -145,8 +139,6 @@
 		padding-block: 0.5rem;
 	}
 	.resultbox {
-		/* border: 1px solid black; */
-		/* color: #666; */
 		height: 2rem;
 		margin-block: 1rem;
 		font-family: 'Alkes', sans-serif;
@@ -202,9 +194,9 @@
 	}
 
 	h1 {
-		background-color: white;
-		border: var(--border-size-3) solid #a00;
-		border-radius: var(--radius-drawn-1);
+		/* background-color: white; */
+		/* border: var(--border-size-3) solid #a00; */
+		/* border-radius: var(--radius-drawn-1); */
 		color: #a00;
 		font-family: 'Carolena Narashy', sans-serif;
 		font-family: 'Unseeness', sans-serif;
@@ -222,6 +214,10 @@
 		font-style: italic;
 	}
 	.card {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		background: white;
 		border: var(--border-size-3) solid #a00;
 		box-shadow: var(--shadow-6);
@@ -231,7 +227,7 @@
 		font-family: 'Alkes', sans-serif;
 		font-size: var(--font-size-2);
 		font-style: italic;
-		min-width: 40rem;
+		/* min-width: 40rem; */
 	}
 	button {
 		background: #a00;
@@ -273,8 +269,6 @@
 		border: 2px solid #333;
 		border-radius: 50%;
 		outline: none;
-		/* align button with value text */
-		vertical-align: -20%;
 	}
 
 	input[type='radio']:before {
@@ -296,6 +290,10 @@
 		margin-inline: 2rem;
 	}
 
+	input[type='number'] {
+		width: 5rem;
+	}
+
 	input[type='number']::-webkit-outer-spin-button,
 	input[type='number']::-webkit-inner-spin-button {
 		-webkit-appearance: none;
@@ -304,5 +302,45 @@
 
 	input[type='number'] {
 		-moz-appearance: textfield;
+	}
+
+	@media (max-width: 600px) {
+		.outer {
+			padding: 0.5rem;
+			padding-inline: 0;
+		}
+		.wrapper {
+			padding: var(--size-1);
+		}
+		.wrapper h1 {
+			/* border: var(--border-size-2) solid #a00; */
+			font-family: 'Katherine Script', sans-serif;
+			font-size: var(--font-size-2);
+		}
+
+		button {
+			font-size: 100%;
+			padding: 0 0.5rem 0.35rem 0.5rem;
+			margin-block-start: 0;
+		}
+		.card {
+			border-width: var(--border-size-2);
+			font-size: 100%;
+			margin-inline: auto;
+			margin-block-start: 0;
+			width: 100%;
+			min-width: 0;
+			max-width: 100%;
+			/* background: yellow; */
+			padding-inline: 0.5rem;
+		}
+		.resultbox {
+			font-size: 120%;
+		}
+		.result {
+			font-size: 1.25rem;
+			padding: 0.5rem;
+			padding-block: 0.25rem;
+		}
 	}
 </style>
