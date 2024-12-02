@@ -2,7 +2,7 @@
 	import Explanation from './Explanation.svelte'
 	import SGs from './SGs.svelte'
 	let viewCalc = true
-	let selectedOption = 'volume'
+	let selectedOption = 'weight'
 	let weight = ''
 	let sg = '1.00'
 	let volume = ''
@@ -45,7 +45,7 @@
 		</button>
 		<div class:hide={viewCalc} class:show={!viewCalc}><Explanation /></div>
 		<div class:show={viewCalc} class:hide={!viewCalc}>
-			<div class="card drawn1">
+			<div class="card drawn1 calc">
 				<div class="radioGroup">
 					<h4>Are you starting with a volume or a weight?</h4>
 					{#each options as option}
@@ -122,7 +122,7 @@
 				{/if}
 			</div>
 			{#if selectedOption === 'weight'}
-				<h3>Click below for a list of specific gravities</h3>
+				<h3 class="sg">Click below for a list of specific gravities</h3>
 				<div class="poison"><SGs /></div>
 			{/if}
 		</div>
@@ -193,7 +193,7 @@
 		font-size: var(--font-size-fluid-0);
 	}
 
-	h1 {
+	.wrapper h1 {
 		/* background-color: white; */
 		/* border: var(--border-size-3) solid #a00; */
 		/* border-radius: var(--radius-drawn-1); */
@@ -202,9 +202,10 @@
 		font-family: 'Unseeness', sans-serif;
 		font-family: 'Katherine Script', sans-serif;
 		letter-spacing: 0.25rem;
-		font-size: var(--font-size-6);
+		font-size: var(--font-size-4);
 		padding-inline: 2rem;
 		margin: 0;
+		/* background-color: yellow; */
 	}
 	h3 {
 		font-size: 1rem;
@@ -227,18 +228,20 @@
 		font-family: 'Alkes', sans-serif;
 		font-size: var(--font-size-2);
 		font-style: italic;
-		/* min-width: 40rem; */
 	}
+
 	button {
 		background: #a00;
 		border: var(--border-size-3) solid #a00;
 		border-radius: var(--radius-drawn-1);
 		color: white;
 		font-size: var(--font-size-2);
-		font-weight: bold;
 		letter-spacing: 0.035rem;
 		margin: 1rem;
-		padding: 0.5rem 1rem;
+		padding: 0 1rem;
+		font-family: 'Alkes', sans-serif;
+		font-size: var(--font-size-3);
+		font-style: italic;
 	}
 	button:hover {
 		background: #800;
@@ -321,18 +324,22 @@
 		button {
 			font-size: 100%;
 			padding: 0 0.5rem 0.35rem 0.5rem;
-			margin-block-start: 0;
+			margin-block-start: 1rem;
 		}
 		.card {
 			border-width: var(--border-size-2);
 			font-size: 100%;
 			margin-inline: auto;
 			margin-block-start: 0;
-			width: 100%;
+			/* width: 100%; */
 			min-width: 0;
-			max-width: 100%;
+			/* max-width: 100%; */
 			/* background: yellow; */
 			padding-inline: 0.5rem;
+		}
+		.calc {
+			width: 85%;
+			margin-inline: auto;
 		}
 		.resultbox {
 			font-size: 120%;
@@ -341,6 +348,12 @@
 			font-size: 1.25rem;
 			padding: 0.5rem;
 			padding-block: 0.25rem;
+		}
+		.sg {
+			font-size: 90%;
+		}
+		.poison {
+			font-size: 70%;
 		}
 	}
 </style>
