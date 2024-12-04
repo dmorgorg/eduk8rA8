@@ -2,7 +2,7 @@
 	import Explanation from './Explanation.svelte'
 	import SGs from './SGs.svelte'
 	let viewCalc = true
-	let selectedOption = 'weight'
+	let selectedOption = 'volume'
 	let weight = ''
 	let sg = '1.00'
 	let volume = ''
@@ -55,7 +55,8 @@
 								name="radioGroup"
 								bind:group={selectedOption}
 								value={option.value}
-								checked={selectedOption === option.value} />
+								checked={selectedOption === option.value}
+								style="vertical-align: top" />
 							{option.label}
 						</label>
 					{/each}
@@ -97,26 +98,22 @@
 
 				{#if selectedOption === 'weight'}
 					<div class="formulabox">
-						Weight (g) &divide; SG &times; ABV (%) &divide; 1000 = alcohol units
+						Weight (g) &divide; SG &times; ABV (%) &divide; 1000 = Alcohol Units
 					</div>
 					<div class="resultbox">
 						{#if weight && sg && abv}
 							{weight} &divide; {sg} &times; {abv} &divide; 1000 &equals;
 							<span class="result">{weightResult()}</span>
-							alcohol units
-
-							<!-- {((Number(weight) * Number(abv)) / 1000).toPrecision(1)} -->
+							Alcohol Units
 						{/if}
 					</div>
 				{:else}
-					<div class="formulabox">Volume (ml) &times; ABV (%) &divide; 1000 = alcohol units</div>
+					<div class="formulabox">Volume (ml) &times; ABV (%) &divide; 1000 = Alcohol Units</div>
 					<div class="resultbox">
 						{#if volume && abv}
 							{volume} &times; {abv} &divide; 1000 &equals;
 							<span class="result">{volumeResult()}</span>
-							alcohol units
-
-							<!-- {((Number(weight) * Number(abv)) / 1000).toPrecision(1)} -->
+							Alcohol Units
 						{/if}
 					</div>
 				{/if}
@@ -130,6 +127,11 @@
 </div>
 
 <style>
+	.poison {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+	}
 	.result {
 		color: white;
 		background: #a00;
@@ -162,7 +164,7 @@
 	}
 	section.form {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1.6fr 1fr;
 		row-gap: 0.5rem;
 		column-gap: 1rem;
 	}
