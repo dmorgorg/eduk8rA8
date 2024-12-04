@@ -1,6 +1,6 @@
 <script>
-	import Explanation from './Explanation.svelte'
-	import SGs from './SGs.svelte'
+	import TheTheory from './TheTheory.svelte'
+
 	let viewCalc = true
 	let selectedOption = 'volume'
 	let weight = ''
@@ -37,13 +37,13 @@
 
 <div class="outer">
 	<div class="wrapper">
-		<h1 class="card drawn1">Alcohol Units Calculator</h1>
+		<h1 class="card drawn1">Vaccine Efficacy Calculator</h1>
 		<button onclick={toggleView}>
 			{#if viewCalc}<span class="bigly">&larr;</span>
-				Show Explanation{:else}Go to Calculator <span class="bigly">&rarr;</span>
+				Show TheTheory{:else}Go to Calculator <span class="bigly">&rarr;</span>
 			{/if}
 		</button>
-		<div class:hide={viewCalc} class:show={!viewCalc}><Explanation /></div>
+		<div class:hide={viewCalc} class:show={!viewCalc}><TheTheory /></div>
 		<div class:show={viewCalc} class:hide={!viewCalc}>
 			<div class="card drawn1 calc">
 				<div class="radioGroup">
@@ -118,21 +118,11 @@
 					</div>
 				{/if}
 			</div>
-			{#if selectedOption === 'weight'}
-				<h3 class="sg">Click below for a list of specific gravities</h3>
-				<div class="poison"><SGs /></div>
-			{/if}
 		</div>
 	</div>
 </div>
 
 <style>
-	@font-face {
-		font-family: 'Covered by your grace';
-		src: url('/fonts/CoveredByYourGrace.ttf') format('ttf');
-		font-weight: normal;
-		font-style: normal;
-	}
 	.poison {
 		position: absolute;
 		left: 50%;
@@ -207,9 +197,8 @@
 		/* border-radius: var(--radius-drawn-1); */
 		color: #a00;
 		font-family: 'Carolena Narashy', sans-serif;
-		font-family: 'Unseeness', sans-serif;
-		font-family: 'Katherine Script', sans-serif;
-		font-family: 'Covered by your grace', sans-serif;
+		/* font-family: 'Unseeness', sans-serif; */
+		/* font-family: 'Katherine Script', sans-serif; */
 		letter-spacing: 0.25rem;
 		font-size: var(--font-size-4);
 		padding-inline: 2rem;
@@ -267,6 +256,12 @@
 	.drawn1 {
 		border-radius: var(--radius-drawn-1);
 	}
+	.drawn2 {
+		border-radius: var(--radius-drawn-2);
+	}
+	.drawn3 {
+		border-radius: var(--radius-drawn-3);
+	}
 
 	input[type='radio'] {
 		appearance: none;
@@ -291,6 +286,7 @@
 	}
 	label.radio {
 		display: inline-block;
+		/* margin-block-start: -2rem; */
 		margin-block-end: 2rem;
 		margin-inline: 2rem;
 	}
@@ -303,6 +299,10 @@
 	input[type='number']::-webkit-inner-spin-button {
 		-webkit-appearance: none;
 		display: none;
+	}
+
+	input[type='number'] {
+		-moz-appearance: textfield;
 	}
 
 	@media (max-width: 600px) {
