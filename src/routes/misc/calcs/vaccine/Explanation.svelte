@@ -1,9 +1,9 @@
 <div class="card drawn2">
 	<p>
-		So, you are interested in calculating your alcohol consumption, in alcohol units, where one
-		alcohol unit is equal to 10 ml (millilitres) or 7.89 g (grams) of pure alcohol. It's not a
-		difficult calculation, if you know the volume of the drink in millilitres (V ml) and the
-		percentage of alcohol by volume (ABV%). Then:
+		So, you are interested in calculating your alcohol consumption, in UK alcohol units, where one
+		alcohol unit is defined by the National Health Service (NHS) to be equal to 10 ml (millilitres)
+		or 7.89 g (grams) of pure alcohol. It's not a difficult calculation, if you know the volume of
+		the drink in millilitres (V ml) and the percentage of alcohol by volume (ABV%). Then:
 	</p>
 	<p>
 		<strong>Alcohol Units = V &times; ABV &divide; 1000</strong>
@@ -58,7 +58,7 @@
 	</p>
 	<p>Now, the calculation is as follows:</p>
 	<p>
-		<strong>Alcohol Units = W &divide; SG &times; ABV &divide; 1000</strong>
+		<strong>UK Alcohol Units = W &divide; SG &times; ABV &divide; 1000</strong>
 		<br />
 		where W is the weight of the drink in grams and SG is its specific gravity
 		<br />
@@ -67,7 +67,7 @@
 	<p>For example, consider 50 g of fine Scotch whisky:</p>
 	<p>
 		<strong>Then:</strong>
-		50 &divide; 0.95 &times 40 &divide; 1000 = 2.11 alcohol units
+		50 &divide; 0.95 &times 40 &divide; 1000 = 2.11 UK alcohol units
 	</p>
 </div>
 
@@ -76,11 +76,10 @@
 		background: white;
 		border: var(--border-size-3) solid #a00;
 
-		font-size: 1.5rem;
 		margin: 1rem;
 		padding: 1rem;
-		font-family: 'Alkes', sans-serif;
-		font-size: var(--font-size-2);
+		font-family: 'AlkesRgIt', sans-serif;
+		font-size: var(--font-size-3);
 		font-style: italic;
 		box-shadow: var(--shadow-6);
 	}

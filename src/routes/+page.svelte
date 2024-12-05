@@ -1,6 +1,7 @@
 <div class="wrapper">
 	<h1>What are you looking for?</h1>
 	<a href="/misc/calcs/alcohol">Alcohol Units Calculator</a>
+	<a href="/misc/calcs/vaccine">Vaccine Efficacy Calculator</a>
 </div>
 
 <style>

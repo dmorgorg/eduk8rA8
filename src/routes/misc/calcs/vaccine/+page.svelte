@@ -1,6 +1,6 @@
 <script>
-	import TheTheory from './TheTheory.svelte'
-
+	import Explanation from './Explanation.svelte'
+	import SGs from './SGs.svelte'
 	let viewCalc = true
 	let selectedOption = 'volume'
 	let weight = ''
@@ -40,10 +40,10 @@
 		<h1 class="card drawn1">Vaccine Efficacy Calculator</h1>
 		<button onclick={toggleView}>
 			{#if viewCalc}<span class="bigly">&larr;</span>
-				Show TheTheory{:else}Go to Calculator <span class="bigly">&rarr;</span>
+				Show Justification{:else}Go to Calculator <span class="bigly">&rarr;</span>
 			{/if}
 		</button>
-		<div class:hide={viewCalc} class:show={!viewCalc}><TheTheory /></div>
+		<div class:hide={viewCalc} class:show={!viewCalc}><Explanation /></div>
 		<div class:show={viewCalc} class:hide={!viewCalc}>
 			<div class="card drawn1 calc">
 				<div class="radioGroup">
@@ -98,26 +98,30 @@
 
 				{#if selectedOption === 'weight'}
 					<div class="formulabox">
-						Weight (g) &divide; SG &times; ABV (%) &divide; 1000 = Alcohol Units
+						Weight (g) &divide; SG &times; ABV (%) &divide; 1000 = UK Units
 					</div>
 					<div class="resultbox">
 						{#if weight && sg && abv}
 							{weight} &divide; {sg} &times; {abv} &divide; 1000 &equals;
 							<span class="result">{weightResult()}</span>
-							Alcohol Units
+							UK Units
 						{/if}
 					</div>
 				{:else}
-					<div class="formulabox">Volume (ml) &times; ABV (%) &divide; 1000 = Alcohol Units</div>
+					<div class="formulabox">Volume (ml) &times; ABV (%) &divide; 1000 = UK Units</div>
 					<div class="resultbox">
 						{#if volume && abv}
 							{volume} &times; {abv} &divide; 1000 &equals;
 							<span class="result">{volumeResult()}</span>
-							Alcohol Units
+							UK Units
 						{/if}
 					</div>
 				{/if}
 			</div>
+			{#if selectedOption === 'weight'}
+				<h3 class="sg">Click below for a list of specific gravities</h3>
+				<div class="poison"><SGs /></div>
+			{/if}
 		</div>
 	</div>
 </div>
@@ -130,7 +134,7 @@
 	}
 	.result {
 		color: white;
-		background: #a00;
+		background: #0a0;
 		border-radius: var(--radius-2);
 		font-size: 1.5rem;
 		padding-inline: 1rem;
@@ -139,7 +143,7 @@
 	.resultbox {
 		height: 2rem;
 		margin-block: 1rem;
-		font-family: 'Alkes', sans-serif;
+		font-family: inherit;
 		font-size: 1.25rem;
 		font-style: italic;
 		font-weight: bold;
@@ -147,7 +151,7 @@
 	.formulabox {
 		/* border: 1px solid black; */
 		margin-block: 2rem;
-		font-family: 'Alkes', sans-serif;
+		font-family: inherit;
 		/* font-size: 1.25rem; */
 		font-style: italic;
 		/* font-weight: bold; */
@@ -173,7 +177,7 @@
 		align-self: center;
 	}
 	.outer {
-		background-color: var(--sand-2);
+		background-image: var(--gradient-18);
 		margin: 0;
 		padding: 1rem;
 		min-height: 100vh;
@@ -192,18 +196,19 @@
 	}
 
 	.wrapper h1 {
-		/* background-color: white; */
-		/* border: var(--border-size-3) solid #a00; */
-		/* border-radius: var(--radius-drawn-1); */
-		color: #a00;
-		font-family: 'Carolena Narashy', sans-serif;
-		/* font-family: 'Unseeness', sans-serif; */
-		/* font-family: 'Katherine Script', sans-serif; */
+		color: #0a0;
+
+		font-family: 'Kaushan', cursive;
+		/* font-family: 'Valittey', cursive;
+		font-family: 'CBYG', cursive; */
+
+		font-size: var(--font-size-7);
+		/* font-weight: bold; */
 		letter-spacing: 0.25rem;
-		font-size: var(--font-size-4);
 		padding-inline: 2rem;
 		margin: 0;
-		/* background-color: yellow; */
+		text-shadow: 0 0 2px #000;
+		word-spacing: 0.25rem;
 	}
 	h3 {
 		font-size: 1rem;
@@ -218,35 +223,35 @@
 		justify-content: center;
 		align-items: center;
 		background: white;
-		border: var(--border-size-3) solid #a00;
+		border: var(--border-size-3) solid #060;
 		box-shadow: var(--shadow-6);
-		font-size: 1.5rem;
 		margin: 1rem;
 		padding: 1rem;
-		font-family: 'Alkes', sans-serif;
-		font-size: var(--font-size-2);
+		font-family: 'AlkesRgIt', sans-serif;
+		font-size: var(--font-size-3);
 		font-style: italic;
 	}
 
 	button {
-		background: #a00;
-		border: var(--border-size-3) solid #a00;
+		background: white;
+
+		border: var(--border-size-3) solid #060;
 		border-radius: var(--radius-drawn-1);
-		color: white;
+		color: #0a0;
 		font-size: var(--font-size-2);
+		font-weight: semibold;
 		letter-spacing: 0.035rem;
 		margin: 1rem;
 		padding: 0 1rem;
-		font-family: 'Alkes', sans-serif;
+		font-family: 'AlkesRgIt', sans-serif;
 		font-size: var(--font-size-3);
 		font-style: italic;
 	}
 	button:hover {
-		background: #800;
+		background: #080;
 		/* background-color: black; */
-		border: var(--border-size-3) solid #800;
-		/* border: var(--border-size-3) solid black; */
-		/* box-shadow: var(--shadow-6); */
+		border: var(--border-size-3) solid #080;
+		color: white;
 	}
 	.bigly {
 		font-size: 1.5rem;
@@ -255,12 +260,6 @@
 	}
 	.drawn1 {
 		border-radius: var(--radius-drawn-1);
-	}
-	.drawn2 {
-		border-radius: var(--radius-drawn-2);
-	}
-	.drawn3 {
-		border-radius: var(--radius-drawn-3);
 	}
 
 	input[type='radio'] {
@@ -286,7 +285,6 @@
 	}
 	label.radio {
 		display: inline-block;
-		/* margin-block-start: -2rem; */
 		margin-block-end: 2rem;
 		margin-inline: 2rem;
 	}
@@ -299,10 +297,6 @@
 	input[type='number']::-webkit-inner-spin-button {
 		-webkit-appearance: none;
 		display: none;
-	}
-
-	input[type='number'] {
-		-moz-appearance: textfield;
 	}
 
 	@media (max-width: 600px) {
