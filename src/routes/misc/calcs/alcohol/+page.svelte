@@ -37,7 +37,8 @@
 
 <div class="outer">
 	<div class="wrapper">
-		<h1 class="card drawn1">Alcohol Units Calculator</h1>
+		<!-- <h1 class="card drawn1">Alcohol Units Calculator</h1> -->
+		<h1 class="card drawn1">UK &middot; Units &middot; Alcohol &middot; Calculator</h1>
 		<button onclick={toggleView}>
 			{#if viewCalc}<span class="bigly">&larr;</span>
 				Show Explanation{:else}Go to Calculator <span class="bigly">&rarr;</span>
@@ -98,22 +99,22 @@
 
 				{#if selectedOption === 'weight'}
 					<div class="formulabox">
-						Weight (g) &divide; SG &times; ABV (%) &divide; 1000 = Alcohol Units
+						Weight (g) &divide; SG &times; ABV (%) &divide; 1000 = UK Units
 					</div>
 					<div class="resultbox">
 						{#if weight && sg && abv}
 							{weight} &divide; {sg} &times; {abv} &divide; 1000 &equals;
 							<span class="result">{weightResult()}</span>
-							Alcohol Units
+							UK Units
 						{/if}
 					</div>
 				{:else}
-					<div class="formulabox">Volume (ml) &times; ABV (%) &divide; 1000 = Alcohol Units</div>
+					<div class="formulabox">Volume (ml) &times; ABV (%) &divide; 1000 = UK Units</div>
 					<div class="resultbox">
 						{#if volume && abv}
 							{volume} &times; {abv} &divide; 1000 &equals;
 							<span class="result">{volumeResult()}</span>
-							Alcohol Units
+							UK Units
 						{/if}
 					</div>
 				{/if}
@@ -127,12 +128,6 @@
 </div>
 
 <style>
-	@font-face {
-		font-family: 'Covered by your grace';
-		src: url('/fonts/CoveredByYourGrace.ttf') format('ttf');
-		font-weight: normal;
-		font-style: normal;
-	}
 	.poison {
 		position: absolute;
 		left: 50%;
@@ -149,7 +144,7 @@
 	.resultbox {
 		height: 2rem;
 		margin-block: 1rem;
-		font-family: 'Alkes', sans-serif;
+		font-family: inherit;
 		font-size: 1.25rem;
 		font-style: italic;
 		font-weight: bold;
@@ -157,7 +152,7 @@
 	.formulabox {
 		/* border: 1px solid black; */
 		margin-block: 2rem;
-		font-family: 'Alkes', sans-serif;
+		font-family: inherit;
 		/* font-size: 1.25rem; */
 		font-style: italic;
 		/* font-weight: bold; */
@@ -206,15 +201,17 @@
 		/* border: var(--border-size-3) solid #a00; */
 		/* border-radius: var(--radius-drawn-1); */
 		color: #a00;
-		font-family: 'Carolena Narashy', sans-serif;
-		font-family: 'Unseeness', sans-serif;
-		font-family: 'Katherine Script', sans-serif;
-		font-family: 'Covered by your grace', sans-serif;
+
+		font-family: 'Kaushan', cursive;
+		font-family: 'Valittey', cursive;
+		/* font-family: 'AlkesRgIt', cursive; */
+
+		font-size: var(--font-size-6);
+		font-weight: semibold;
 		letter-spacing: 0.25rem;
-		font-size: var(--font-size-4);
 		padding-inline: 2rem;
 		margin: 0;
-		/* background-color: yellow; */
+		word-spacing: -1.25rem;
 	}
 	h3 {
 		font-size: 1rem;
@@ -231,11 +228,10 @@
 		background: white;
 		border: var(--border-size-3) solid #a00;
 		box-shadow: var(--shadow-6);
-		font-size: 1.5rem;
 		margin: 1rem;
 		padding: 1rem;
-		font-family: 'Alkes', sans-serif;
-		font-size: var(--font-size-2);
+		font-family: 'AlkesRgIt', sans-serif;
+		font-size: var(--font-size-3);
 		font-style: italic;
 	}
 
@@ -248,7 +244,7 @@
 		letter-spacing: 0.035rem;
 		margin: 1rem;
 		padding: 0 1rem;
-		font-family: 'Alkes', sans-serif;
+		font-family: 'AlkesRgIt', sans-serif;
 		font-size: var(--font-size-3);
 		font-style: italic;
 	}

@@ -76,11 +76,10 @@
 		background: white;
 		border: var(--border-size-3) solid #a00;
 
-		font-size: 1.5rem;
 		margin: 1rem;
 		padding: 1rem;
-		font-family: 'Alkes', sans-serif;
-		font-size: var(--font-size-2);
+		font-family: 'AlkesRgIt', sans-serif;
+		font-size: var(--font-size-3);
 		font-style: italic;
 		box-shadow: var(--shadow-6);
 	}
