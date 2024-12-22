@@ -312,7 +312,8 @@
 		.wrapper h1 {
 			/* border: var(--border-size-2) solid #a00; */
 			font-family: 'Katherine Script', sans-serif;
-			font-size: var(--font-size-2);
+			font-size: var(--font-size-1);
+			background: yellow;
 		}
 
 		button {
